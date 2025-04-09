@@ -13,7 +13,7 @@ services:
     networks:
       - roboshop
   redis:
-    image: redis:v1
+    image: redis
     container_name: redis
     networks:
       - roboshop
