@@ -18,11 +18,11 @@ services:
     networks:
       - roboshop
   user:
-     image: user:v1
-     container_name: user
-     networks:
-       - roboshop
-     depends_on:
+    image: user:v1
+    container_name: user
+    networks:
+    - roboshop
+    depends_on:
        - mongodb
        - redis  
   cart:
@@ -32,7 +32,12 @@ services:
       - roboshop
     depends_on:
       - redis 
-      - catalogue        
+      - catalogue
+  mysql:
+    image: mysql:v1
+    container_name: mysql
+    networks:
+      - roboshop              
   web:
     image: web:v1
     container_name: web
